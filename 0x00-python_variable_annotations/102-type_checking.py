@@ -21,6 +21,7 @@ def zoom_array(
     )
     return zoomed_in
 
+
 array = (12, 72, 91)
 
 zoom_2x = zoom_array(array)

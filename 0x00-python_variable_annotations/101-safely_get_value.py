@@ -8,7 +8,12 @@ default parameter
 T = TypeVar('T')
 
 
-def safely_get_value(dct: Mapping, key: Any, default: Optional[T] = None) -> Union[Any, T]:
+def safely_get_value(
+        dct: Mapping,
+        key: Any,
+        default: Optional[T] = None
+) -> Union[Any, T]:
+
     """
     Returns the value associated with the given key in the
     dictionary if it exists, otherwise returns the default value.

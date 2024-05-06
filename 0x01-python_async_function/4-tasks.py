@@ -17,7 +17,7 @@ async def wait_random(max_delay: int = 10) -> float:
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Executes multiple coroutines at the same time using asyncio Tasks.
+    Executes multiple coroutines at the same time using asyncio Tasks
     """
     tasks = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
     return [await task for task in tasks]

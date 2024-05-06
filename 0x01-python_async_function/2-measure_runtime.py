@@ -21,8 +21,3 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     """
     coroutines = [wait_random(max_delay) for _ in range(n)]
     return await asyncio.gather(*coroutines)
-
-if __name__ == "__main__":
-    asyncio.run(wait_n(5, 5))
-    asyncio.run(wait_n(10, 7))
-    asyncio.run(wait_n(10, 0))

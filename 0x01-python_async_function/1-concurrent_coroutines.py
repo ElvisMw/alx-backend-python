@@ -24,9 +24,3 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
         delay = await wait_random(max_delay)
         delays.append(delay)
     return sorted(delays)
-
-
-if __name__ == "__main__":
-    print(asyncio.run(wait_n(5, 5)))
-    print(asyncio.run(wait_n(10, 7)))
-    print(asyncio.run(wait_n(10, 0)))

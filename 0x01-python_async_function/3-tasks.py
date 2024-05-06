@@ -2,17 +2,7 @@
 
 import asyncio
 from typing import Task
-import random
-
-
-async def wait_random(max_delay: int = 10) -> float:
-    """
-    Asynchronous coroutine that generates a random
-    delay between 0 and max_delay.
-    """
-    delay = random.uniform(0, max_delay)
-    await asyncio.sleep(delay)
-    return delay
+from 0-basic_async_syntax import wait_random
 
 
 def task_wait_random(max_delay: int) -> Task:

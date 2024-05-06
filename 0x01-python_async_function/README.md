@@ -40,4 +40,4 @@ Implement a function to measure the total execution time for running the corouti
 
 ### Task 4: Creating asyncio Tasks
 
-Create asyncio Tasks for the coroutines defined in Task 1 and Task 2.
+Create asyncio Tasks for the coroutines defined in Task 1 and Task 2

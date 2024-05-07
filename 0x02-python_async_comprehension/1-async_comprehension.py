@@ -3,7 +3,7 @@
 from typing import List
 from random import uniform
 from asyncio import gather
-from async_generator import async_generator
+from 0-async_generator import async_generator
 
 
 async def async_comprehension() -> List[float]:

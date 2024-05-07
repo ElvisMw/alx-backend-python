@@ -2,7 +2,7 @@
 """ 2-measure_runtime """
 import asyncio
 from time import perf_counter
-from async_comprehension import async_comprehension
+from 1-async_comprehension import async_comprehension
 
 
 async def measure_runtime() -> float:

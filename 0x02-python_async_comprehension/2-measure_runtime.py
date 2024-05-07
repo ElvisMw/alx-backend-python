@@ -10,7 +10,8 @@ from async_comprehension import async_comprehension
 
 async def measure_runtime() -> float:
     """
-    Coroutine that measures the total runtime for executing async_comprehension
+    Coroutine that measures the total runtime for
+    executing async_comprehension
     four times in parallel using asyncio.gather.
     """
     start_time = perf_counter()

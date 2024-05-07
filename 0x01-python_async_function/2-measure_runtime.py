@@ -1,16 +1,6 @@
 #!/usr/bin/env python3
 """
 This module contains two coroutines and one function for measuring execution time.
-
-The wait_random() coroutine generates a random delay between 0 and max_delay
-(inclusive), and then waits for that many seconds using asyncio.sleep().
-
-The wait_n() coroutine creates a list of n coroutines, each of which calls
-wait_random() with the same max_delay, and then waits for all of the coroutines
-to complete using asyncio.gather().
-
-The measure_time() function measures the total execution time of running
-wait_n(n, max_delay) using asyncio.run(), and then returns total_time / n.
 """
 
 import asyncio

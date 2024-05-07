@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import asyncio
 from 0-basic_async_syntax import wait_random
 

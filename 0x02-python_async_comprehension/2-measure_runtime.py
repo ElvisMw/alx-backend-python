@@ -7,7 +7,6 @@ import time
 from importlib import import_module as using
 
 
-"""Async function that collects 10 random numbers"""
 async_comprehension = using('1-async_comprehension').async_comprehension
 
 
@@ -18,10 +17,5 @@ async def measure_runtime() -> float:
     """
 
     start_time = time.time()
-
-    """ Executes 4 calls to async_comprehension concurrently
-    gather() returns a list of futures"""
     await asyncio.gather(*(async_comprehension() for _ in range(4)))
-
-    """ Subtract start time from current time to get total runtime"""
     return time.time() - start_time

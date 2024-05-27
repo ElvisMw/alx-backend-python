@@ -1,19 +1,48 @@
 #!/usr/bin/env python3
 import unittest
 from unittest.mock import patch
-from parameterized import parameterized
+from parameterized import parameterized_class
+from fixtures import org_payload, repos_payload, expected_repos, apache2_repos
 from client import GithubOrgClient
 
 
-class TestGithubOrgClient(unittest.TestCase):
-    @parameterized.expand([
-        ({"license": {"key": "my_license"}}, "my_license", True),
-        ({"license": {"key": "other_license"}}, "my_license", False),
-    ])
-    def test_has_license(self, repo, license_key, expected_result):
+@parameterized_class(
+    ("org_payload", "repos_payload", "expected_repos", "apache2_repos"),
+    [
+        (org_payload, repos_payload, expected_repos, apache2_repos),
+    ]
+)
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.get_patcher = patch('client.requests.get')
+
+        cls.mock_get = cls.get_patcher.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.get_patcher.stop()
+
+    def setUp(self):
+        self.mock_get.reset_mock()
+
+    def test_public_repos(self):
+        self.mock_get.return_value.json.side_effect =
+        [self.org_payload, self.repos_payload]
+
         client = GithubOrgClient("test-org")
-        result = client.has_license(repo, license_key)
-        self.assertEqual(result, expected_result)
+        result = client.public_repos
+
+        self.assertEqual(result, self.expected_repos)
+
+    def test_public_repos_with_license(self):
+        self.mock_get.return_value.json.side_effect =
+        [self.org_payload, self.apache2_repos]
+
+        client = GithubOrgClient("test-org")
+        result = client.public_repos
+
+        self.assertEqual(result, ["repo1", "repo2"])
 
 
 if __name__ == '__main__':

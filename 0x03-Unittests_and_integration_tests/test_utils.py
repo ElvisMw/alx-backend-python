@@ -1,5 +1,6 @@
 from unittest.mock import patch, Mock
 
+
 class TestGetJson(unittest.TestCase):
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
